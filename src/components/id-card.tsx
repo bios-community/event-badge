@@ -75,12 +75,12 @@ const IDCard = ({
 					{/* NAME */}
 					<div className="space-y-2 py-4">
 						<p className="text-[18px] px-4 py-2 bg-[#2b28ff] font-semibold text-center rounded-full text-white">
-							{name ? name : "Adarsh Dubey"}
+							{name ? name : "Your name"}
 						</p>
 						<p className="text-center font-semibold text-gray-700">
 							{linkedin
 								? linkedin
-								: "linkedin.com/in/dubeyadarsh"}
+								: "your-linkedin"}
 						</p>
 					</div>
 					{/* NAME */}
