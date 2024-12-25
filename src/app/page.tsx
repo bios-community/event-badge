@@ -63,14 +63,14 @@ export default function Home() {
 			</main>
 			{/* Off-screen Div for Download */}
 			<div
-				className="aspect-square overflow-hidden rounded-2xl w-[760px] relative"
+				className="aspect-square overflow-hidden rounded-2xl w-[760px] relative bg-[url('/bg.jpeg')] bg-cover bg-center"
 				id="download"
 			>
-				<Image
+				{/* <Image
 					src={bg}
 					alt="background gradient"
 					className="absolute top-0 left-0 w-full -z-10 h-full"
-				/>
+				/> */}
 				<IDCard name={name} linkedin={linkedin} className="mx-auto" />
 			</div>
 		</>

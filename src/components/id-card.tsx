@@ -12,7 +12,7 @@ const IDCard = ({
 	return (
 		<div className={cn("w-[400px]", className)}>
 			{/* STRAP */}
-			<div className="w-[10%] h-[80px] bg-[#2b28ff] mx-auto shadow-xl" />
+			<div className="w-[10%] h-[80px] bg-gradient-to-br from-[#2b28ff] to-[#1815d6] mx-auto shadow-3xl" />
 			<div className="w-[48px] h-[30px] bg-[#171717] rounded-[4px] mx-auto" />
 			<div className="w-[24px] h-[18px] bg-[#171717] rounded-br-[4px] rounded-bl-[4px] mx-auto relative z-10" />
 			{/* STRAP */}
