@@ -8,13 +8,13 @@ const IDCard = ({ name, linkedin, className }: { name: string; linkedin: string;
     return (
         <div className={cn("w-[400px]", className)}>
             {/* STRAP */}
-            <div className="w-[10%] h-[80px] bg-[#2b28ff] mx-auto" />
+            <div className="w-[10%] h-[80px] bg-[#2b28ff] mx-auto shadow-xl" />
             <div className="w-[48px] h-[30px] bg-[#171717] rounded-[4px] mx-auto" />
             <div className="w-[24px] h-[18px] bg-[#171717] rounded-br-[4px] rounded-bl-[4px] mx-auto relative z-10" />
             {/* STRAP */}
 
             {/* CARD */}
-            <div className="w-full bg-[#f6f6f6] border border-[#e9e9e9] mx-auto -my-[15px] px-1.5 relative z-0 rounded-[28px]">
+            <div className="w-full bg-[#f6f6f6] border border-[#e9e9e9] mx-auto -my-[15px] px-1.5 relative z-0 rounded-[28px] shadow-2xl">
                 {/* CARD HOLD */}
                 <div className="w-[44px] h-[12px] my-[8px] bg-white rounded-full border border-[#e9e9e9] mx-auto" />
                 {/* CARD HOLD */}
