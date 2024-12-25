@@ -1,20 +1,53 @@
-"use client"
+"use client";
 
-import { useState } from "react";
+import { bg } from "@/assets";
 import IDCard from "@/components/id-card";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
-	const [name, setName] = useState("")
-	const [linkedin, setLinkedin] = useState("")
-	const [email, setEmail] = useState("")
-	return <main>
-		<IDCard name={name} linkedin={linkedin} />
-		<div className="">
-			<div className="flex justify-center items-center flex-col gap-2 my-10 max-w-[400px] mx-auto">
-				<input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border border-gray-300 rounded-md w-full" />
-				<input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="p-2 border border-gray-300 rounded-md w-full" />
-				<input type="text" placeholder="Linkedin" value={linkedin} onChange={(e) => setLinkedin(e.target.value)} className="p-2 border border-gray-300 rounded-md w-full" />
+	const [name, setName] = useState("");
+	const [linkedin, setLinkedin] = useState("");
+	const [email, setEmail] = useState("");
+	return (
+		<main className="grid grid-cols-3 px-7 gap-7 mt-20">
+			<div className="flex justify-center flex-col gap-5">
+				<p className="text-2xl font-semibold">Enter your details below:</p>
+				<div className="flex justify-center items-center flex-col gap-2">
+					<input
+						type="text"
+						placeholder="Email"
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+						className="p-2 border border-gray-300 rounded-md w-full"
+					/>
+					<input
+						type="text"
+						placeholder="Name"
+						value={name}
+						onChange={e => setName(e.target.value)}
+						className="p-2 border border-gray-300 rounded-md w-full"
+					/>
+					<input
+						type="text"
+						placeholder="Linkedin"
+						value={linkedin}
+						onChange={e => setLinkedin(e.target.value)}
+						className="p-2 border border-gray-300 rounded-md w-full"
+					/>
+				</div>
+				<button type="button" className="bg-[#2b28ff] hover:opacity-90 transition-opacity p-2 rounded-md text-white font-semibold">
+					Download
+				</button>
 			</div>
-		</div>
-	</main>;
+			<div className="relative aspect-video overflow-hidden rounded-2xl col-span-2">
+				<Image
+					src={bg}
+					alt="background gradient"
+					className="absolute top-0 left-0 w-full -z-10"
+				/>
+				<IDCard name={name} linkedin={linkedin} className="shadow-2xl" />
+			</div>
+		</main>
+	);
 }

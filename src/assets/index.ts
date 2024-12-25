@@ -1,5 +1,4 @@
-import biosLogo from './bios-logo.png'
+import bg from "./bg.jpeg";
+import biosLogo from "./bios-logo.png";
 
-export {
-    biosLogo
-}
+export { biosLogo, bg };
