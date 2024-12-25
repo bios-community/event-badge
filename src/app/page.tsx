@@ -6,6 +6,7 @@ import html2canvas from "html2canvas";
 import downloadjs from "downloadjs";
 import Image from "next/image";
 import { useState } from "react";
+import * as htmlToImage from 'html-to-image'
 
 export default function Home() {
 	const [name, setName] = useState("");
@@ -16,8 +17,9 @@ export default function Home() {
 		const element = document.getElementById("download");
 		if (!element) return;
 
-		const canvas = await html2canvas(element, { scrollX: 0, scrollY: 0, allowTaint: true, useCORS: true });
-		const dataURL = canvas.toDataURL("image/png");
+		// const canvas = await html2canvas(element, { scrollX: 0, scrollY: 0, allowTaint: true, useCORS: true });
+		// const dataURL = canvas.toDataURL("image/png");
+		const dataURL = await htmlToImage.toPng(element)
 		downloadjs(dataURL, "invoke-card.png", "image/png")
 	};
 
@@ -69,8 +71,9 @@ export default function Home() {
 			</main>
 			{/* Off-screen Div for Download */}
 			<h2 className="text-center font-semibold text-2xl mt-20">Downloaded image will be:</h2>
+			<div className="mt-10" />
 			<div
-				className="aspect-square overflow-hidden rounded-2xl w-[760px] relative bg-[url('/bg.jpeg')] bg-cover bg-center mb-20 mt-10 mx-auto"
+				className="aspect-square overflow-hidden w-[760px] relative bg-[url('/bg.jpeg')] bg-cover bg-center mb-20"
 				id="download"
 			>
 				<IDCard name={name} linkedin={linkedin} className="mx-auto" />
