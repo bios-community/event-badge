@@ -3,7 +3,7 @@ import React from 'react'
 import { biosLogo } from '@/assets'
 import { ArrowUpRight, Slash } from 'lucide-react'
 
-const IDCard = () => {
+const IDCard = ({ name, linkedin }: { name: string; linkedin: string; }) => {
     return (
         <div className="mx-auto">
             {/* STRAP */}
@@ -61,8 +61,10 @@ const IDCard = () => {
 
                     {/* NAME */}
                     <div className="space-y-2 py-4">
-                        <p className="text-[18px] px-4 py-2 bg-[#2b28ff] font-semibold text-center rounded-full text-white">Adarsh Dubey</p>
-                        <p className="text-center font-semibold text-gray-700">dubeyadarshmain@gmail.com</p>
+                        <p className="text-[18px] px-4 py-2 bg-[#2b28ff] font-semibold text-center rounded-full text-white">{
+                            name ? name : "Adarsh Dubey"
+                        }</p>
+                        <p className="text-center font-semibold text-gray-700">{linkedin ? linkedin : "linkedin.com/in/dubeyadarsh"}</p>
                     </div>
                     {/* NAME */}
 
