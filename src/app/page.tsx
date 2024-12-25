@@ -2,6 +2,8 @@
 
 import { bg } from "@/assets";
 import IDCard from "@/components/id-card";
+import html2canvas from "html2canvas";
+import downloadjs from "downloadjs";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -10,9 +12,13 @@ export default function Home() {
 	const [linkedin, setLinkedin] = useState("");
 	const [email, setEmail] = useState("");
 
-	const handleDownload = () => {
+	const handleDownload = async () => {
 		const element = document.getElementById("download");
 		if (!element) return;
+
+		const canvas = await html2canvas(element, { scrollX: 0, scrollY: 0, allowTaint: true, useCORS: true });
+		const dataURL = canvas.toDataURL("image/png");
+		downloadjs(dataURL, "invoke-card.png", "image/png")
 	};
 
 	return (
@@ -62,15 +68,11 @@ export default function Home() {
 				</div>
 			</main>
 			{/* Off-screen Div for Download */}
+			<h2 className="text-center font-semibold text-2xl mt-20">Downloaded image will be:</h2>
 			<div
-				className="aspect-square overflow-hidden rounded-2xl w-[760px] relative bg-[url('/bg.jpeg')] bg-cover bg-center"
+				className="aspect-square overflow-hidden rounded-2xl w-[760px] relative bg-[url('/bg.jpeg')] bg-cover bg-center mb-20 mt-10 mx-auto"
 				id="download"
 			>
-				{/* <Image
-					src={bg}
-					alt="background gradient"
-					className="absolute top-0 left-0 w-full -z-10 h-full"
-				/> */}
 				<IDCard name={name} linkedin={linkedin} className="mx-auto" />
 			</div>
 		</>
