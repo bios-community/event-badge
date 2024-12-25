@@ -10,8 +10,8 @@ export default function Home() {
 	const [linkedin, setLinkedin] = useState("");
 	const [email, setEmail] = useState("");
 	return (
-		<main className="grid grid-cols-3 px-7 gap-7 mt-20">
-			<div className="flex justify-center flex-col gap-5">
+		<main className="flex flex-col-reverse md:flex-row max-w-7xl mx-auto px-7 gap-7">
+			<div className="flex justify-center flex-col gap-5 grow -translate-y-20 min-[450px]:translate-y-0">
 				<p className="text-2xl font-semibold">Enter your details below:</p>
 				<div className="flex justify-center items-center flex-col gap-2">
 					<input
@@ -40,14 +40,16 @@ export default function Home() {
 					Download
 				</button>
 			</div>
-			<div className="relative aspect-video overflow-hidden rounded-2xl col-span-2">
+			<div className="md:grow scale-[80%] -translate-x-[10%] min-[450px]:scale-[100%] min-[450px]:-translate-x-0 origin-top">
+				<IDCard name={name} linkedin={linkedin} className="mx-auto" />
+			</div>
+			{/* <div className="relative aspect-square overflow-hidden bg-red-100 rounded-2xl">
 				<Image
 					src={bg}
 					alt="background gradient"
 					className="absolute top-0 left-0 w-full -z-10"
 				/>
-				<IDCard name={name} linkedin={linkedin} className="shadow-2xl" />
-			</div>
+			</div> */}
 		</main>
 	);
 }
